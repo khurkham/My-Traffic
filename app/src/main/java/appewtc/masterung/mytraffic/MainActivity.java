@@ -1,6 +1,8 @@
 package appewtc.masterung.mytraffic;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     //Explicit การประกาศตัวแปร
     private ListView trafficListView;
     private Button aboutMeButton;
+    private static final String urlYouTube = "https://youtu.be/AFmWqLIqDZA";
 
 
     @Override
@@ -33,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.start();
 
                 //Intent to WebView
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(urlYouTube));
+                startActivity(intent);
 
 
             }   // onClick
