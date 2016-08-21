@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -99,6 +100,14 @@ public class MainActivity extends AppCompatActivity {
         TrafficAdapter trafficAdapter = new TrafficAdapter(this, iconInts, titleStrings,
                 detailShortStrings, stockStrings, priceStrings);
         trafficListView.setAdapter(trafficAdapter);
+
+        //onClick ListView
+        trafficListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
 
 
 
