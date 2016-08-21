@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Create ListView
         //1 Setup Basic Array
-        int[] iconInts = new int[20];
+        final int[] iconInts = new int[20];
         iconInts[0] = R.drawable.traffic_01;
         iconInts[1] = R.drawable.traffic_02;
         iconInts[2] = R.drawable.traffic_03;
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 2. Setup Array from other Class
         MyData myData = new MyData();
-        String[] titleStrings = myData.getTitleStrings();
+        final String[] titleStrings = myData.getTitleStrings();
 
         int[] ints = myData.getInts();
         String[] stockStrings = new String[ints.length];
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // 3. Setup Array from other xml
-        String[] detailStrings = getResources().getStringArray(R.array.detail);
+        final String[] detailStrings = getResources().getStringArray(R.array.detail);
 
         //SubString คือการตัดคำ
         String[] detailShortStrings = new String[detailStrings.length];
@@ -106,7 +106,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-            }
+                //Intent to DetailActivity
+                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+                intent.putExtra("Title", titleStrings[i]);
+                intent.putExtra("Icon", iconInts[i]);
+                intent.putExtra("Detail", detailStrings[i]);
+                startActivity(intent);
+
+            }   // onItemClick
         });
 
 
